@@ -4,6 +4,8 @@ import 'package:http/http.dart';
 import 'package:molix/config/logs/logger.dart';
 import 'package:molix/config/network/client.dart';
 
+import '../exception_handler/exceptions.dart';
+
 typedef MapOrList = Either<Map<String, dynamic>, List>;
 
 class NetworkFacade {
@@ -41,7 +43,7 @@ class NetworkFacade {
     } else if (json is List) {
       return Either.right(json);
     } else {
-      throw Exception('Invalid json');
+      throw const JsonParsingException('Invalid json');
     }
   }
 }
