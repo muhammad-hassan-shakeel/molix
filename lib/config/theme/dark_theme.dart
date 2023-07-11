@@ -40,4 +40,12 @@ class DarkTheme extends MolixTheme {
   InputDecorationTheme get inputDecorationTheme => InputDecorationTheme(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       );
+
+  @override
+  AppBarTheme get appBarTheme => AppBarTheme(
+        backgroundColor: Colors.grey.shade900.withOpacity(0.5),
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: _primaryColor),
+      );
 }

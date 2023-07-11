@@ -41,6 +41,7 @@ dependencies:
   equatable: ^2.0.5
   hydrated_bloc: ^9.1.2
   path_provider: ^2.0.15
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

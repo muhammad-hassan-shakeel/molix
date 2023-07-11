@@ -41,4 +41,12 @@ class LightTheme extends MolixTheme {
           borderRadius: BorderRadius.circular(8),
         ),
       );
+
+  @override
+  AppBarTheme get appBarTheme => AppBarTheme(
+        backgroundColor: Colors.white.withOpacity(0.5),
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: _primaryColor),
+      );
 }

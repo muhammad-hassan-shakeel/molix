@@ -12,12 +12,12 @@ class MovieInitial extends MovieState {
 }
 
 class MovieFetched extends MovieState {
-  final List<MovieModel> movies;
+  final MovieCollectionModel collection;
 
-  const MovieFetched({required this.movies});
+  const MovieFetched({required this.collection});
 
   @override
-  List<Object> get props => [movies];
+  List<Object> get props => [collection];
 }
 
 class MovieLoading extends MovieState {

@@ -40,24 +40,32 @@ class _LoginViewState extends State<_LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Form(
-        key: _formKey,
-        child: ListView(
-          children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-            Text(
-              'mOlIx',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary),
-            ),
-            const SizedBox(height: 40),
-            _form(context),
-            const SizedBox(height: 32),
-            _loginButton(context),
-            _forgotPassword(context),
-          ],
+      body: TweenAnimationBuilder(
+        tween: Tween<double>(begin: 0, end: 1),
+        duration: const Duration(milliseconds: 500),
+        builder: (context, tween, child) => Opacity(
+          opacity: tween,
+          child: child,
+        ),
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+              Text(
+                'mOlIx',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.primary),
+              ),
+              const SizedBox(height: 40),
+              _form(context),
+              const SizedBox(height: 32),
+              _loginButton(context),
+              _forgotPassword(context),
+            ],
+          ),
         ),
       ),
     );
