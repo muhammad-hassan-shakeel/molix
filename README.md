@@ -8,6 +8,7 @@ Molix is a Flutter app that allows you to create and manage your own lists of mo
 * [Flutter](https://flutter.dev/docs/get-started/install)
 * [Android Studio](https://developer.android.com/studio) or [Visual Studio Code](https://code.visualstudio.com/)
 * [Git](https://git-scm.com/downloads)
+* [Xcode](https://developer.apple.com/xcode/) (MacOS only)
 
 ### Project Setup
 * Clone the repository
