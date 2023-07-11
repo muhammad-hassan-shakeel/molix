@@ -69,14 +69,12 @@ android {
             dimension "flavors"
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
-            menifestPlaceholders = [appName: "Molix Dev"]
             resValue "string", "app_name", "Molix Dev"
         }
         prod {
             dimension "flavors"
             applicationIdSuffix ".prod"
             versionNameSuffix "-prod"
-            menifestPlaceholders = [appName: "Molix"]
             resValue "string", "app_name", "Molix"
         }
     }
