@@ -1,7 +1,7 @@
 part of 'theme_cubit.dart';
 
 class ThemeState extends Equatable {
-  const ThemeState({this.themeData = const LightTheme()});
+  const ThemeState({this.themeData = const DarkTheme()});
 
   final MolixTheme themeData;
 

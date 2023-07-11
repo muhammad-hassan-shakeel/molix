@@ -5,6 +5,8 @@ import 'molix_theme.dart';
 final _primaryColor = Colors.red.shade400;
 
 class DarkTheme extends MolixTheme {
+  const DarkTheme();
+
   @override
   CardTheme get cardTheme => CardTheme(
         elevation: 0,
