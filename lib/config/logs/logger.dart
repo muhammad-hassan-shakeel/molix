@@ -14,6 +14,8 @@ abstract class Logger {
 }
 
 class LoggerV1 implements Logger {
+  const LoggerV1();
+
   @override
   void onError(String path, String method,
       {int? statusCode, error, stackTrace}) {
