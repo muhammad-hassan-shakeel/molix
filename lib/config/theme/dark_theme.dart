@@ -38,8 +38,6 @@ class DarkTheme extends MolixTheme {
 
   @override
   InputDecorationTheme get inputDecorationTheme => InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       );
 }
