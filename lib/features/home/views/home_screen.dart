@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:molix/config/environment.dart';
@@ -61,6 +62,16 @@ class _HomeView extends StatelessWidget {
             }
             if (state is MovieLoading) {
               return const Center(child: CircularProgressIndicator());
+            }
+
+            if (state is MovieError) {
+              return Center(
+                  child: TextButton(
+                      onPressed: () {
+                        context.read<MovieBloc>().add(FetchMovieEvent(
+                            apiKey: context.read<Environment>().apiKey));
+                      },
+                      child: const Text('Error.. Retry')));
             }
 
             if (state is MovieFetched) {
