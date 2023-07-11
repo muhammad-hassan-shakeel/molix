@@ -66,7 +66,7 @@ class _HomeView extends StatelessWidget {
             if (state is MovieFetched) {
               final screens = [
                 MoviesList(collection: state.collection),
-                SearchScreen(),
+                const SearchScreen(),
                 const DownloadsScreen(),
                 const ProfileScreen(),
               ];

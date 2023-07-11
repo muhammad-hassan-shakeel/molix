@@ -33,15 +33,13 @@ class HorizontalScrollerWidget extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     children: movies.map((movie) {
-                      final imageUrl =
-                          'https://www.themoviedb.org/t/p/w1280${movie.imageUrl}';
                       return Container(
                         width: 150,
                         margin: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(imageUrl),
+                            image: NetworkImage(movie.imageUrl),
                             fit: BoxFit.cover,
                           ),
                         ),

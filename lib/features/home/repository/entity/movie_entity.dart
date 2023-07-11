@@ -67,7 +67,8 @@ class Movie {
         originalTitle: json["original_title"],
         overview: json["overview"],
         popularity: json["popularity"].toDouble(),
-        posterPath: json["poster_path"],
+        posterPath:
+            'https://www.themoviedb.org/t/p/w1280${json["poster_path"]}',
         releaseDate: DateTime.parse(json["release_date"]),
         title: json["title"],
         video: json["video"],

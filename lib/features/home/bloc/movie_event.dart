@@ -18,3 +18,15 @@ class ChangeTabEvent extends MovieEvent {
 
   const ChangeTabEvent({required this.currentTab});
 }
+
+class SearchMovieEvent extends MovieEvent {
+  final String query;
+
+  const SearchMovieEvent({required this.query});
+}
+
+class ChangeMovieSearchCategory extends MovieEvent {
+  final MovieSearchCategory movieSearch;
+
+  const ChangeMovieSearchCategory({required this.movieSearch});
+}

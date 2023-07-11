@@ -5,7 +5,6 @@ abstract class MovieState extends Equatable {
 
   final int currentTab;
 
-
   @override
   List<Object> get props => [];
 }
@@ -16,11 +15,18 @@ class MovieInitial extends MovieState {
 
 class MovieFetched extends MovieState {
   final MovieCollectionModel collection;
+  final List<MovieModel> searchResults;
+  final MovieSearchCategory movieSearch;
 
-  const MovieFetched({required this.collection, super.currentTab});
+  const MovieFetched(
+      {required this.collection,
+      super.currentTab,
+      this.movieSearch = MovieSearchCategory.all,
+      this.searchResults = const []});
 
   @override
-  List<Object> get props => [collection, currentTab];
+  List<Object> get props =>
+      [collection, currentTab, searchResults, movieSearch];
 }
 
 class MovieLoading extends MovieState {

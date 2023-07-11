@@ -8,7 +8,6 @@ class BannerWidget extends StatelessWidget {
     required this.movies,
   });
   final List<MovieModel> movies;
-  final imageBaseUrl = 'https://www.themoviedb.org/t/p/w1280';
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +18,13 @@ class BannerWidget extends StatelessWidget {
         autoPlay: true,
       ),
       items: movies.map((movie) {
-        final imageUrl = '$imageBaseUrl${movie.imageUrl}';
         return Stack(
           children: [
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: NetworkImage(imageUrl),
+                  image: NetworkImage(movie.imageUrl),
                   fit: BoxFit.cover,
                 ),
               ),
