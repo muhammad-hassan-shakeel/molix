@@ -1,6 +1,6 @@
 # molix
 
-Molix is a Flutter app that allows you to create and manage your own lists of movies and series. You can use this app accross different platforms such as Android, iOS, Web and Desktop(Windows, Linux and MacOS).
+Molix is a Flutter app that allows you to create and manage your own lists of movies and series. You can use this app accross both mobile platforms i.e iOS and android.
 
 ## Getting Started
 
