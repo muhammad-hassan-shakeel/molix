@@ -43,12 +43,14 @@ class BannerWidget extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 child: Text(
                   movie.name,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                 ),
               ),

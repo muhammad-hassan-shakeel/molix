@@ -1,7 +1,10 @@
 part of 'movie_bloc.dart';
 
 abstract class MovieState extends Equatable {
-  const MovieState();
+  const MovieState({this.currentTab = 0});
+
+  final int currentTab;
+
 
   @override
   List<Object> get props => [];
@@ -14,18 +17,24 @@ class MovieInitial extends MovieState {
 class MovieFetched extends MovieState {
   final MovieCollectionModel collection;
 
-  const MovieFetched({required this.collection});
+  const MovieFetched({required this.collection, super.currentTab});
 
   @override
-  List<Object> get props => [collection];
+  List<Object> get props => [collection, currentTab];
 }
 
 class MovieLoading extends MovieState {
-  const MovieLoading();
+  const MovieLoading({super.currentTab});
+
+  @override
+  List<Object> get props => [currentTab];
 }
 
 class MovieError extends MovieState {
   final String message;
 
-  const MovieError({this.message = 'Something went wrong'});
+  const MovieError({this.message = 'Something went wrong', super.currentTab});
+
+  @override
+  List<Object> get props => [message, currentTab];
 }

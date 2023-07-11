@@ -49,4 +49,10 @@ class LightTheme extends MolixTheme {
         centerTitle: true,
         iconTheme: IconThemeData(color: _primaryColor),
       );
+
+  @override
+  BottomNavigationBarThemeData get bottomNavigationBarTheme =>
+      BottomNavigationBarThemeData(
+          selectedItemColor: _primaryColor,
+          unselectedItemColor: Colors.grey.shade400);
 }

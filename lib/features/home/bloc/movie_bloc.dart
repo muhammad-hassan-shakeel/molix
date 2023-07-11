@@ -13,6 +13,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> with HydratedMixin {
         super(const MovieInitial()) {
     hydrate();
     on<FetchMovieEvent>(_onFetchMovieEvent);
+    on<ChangeTabEvent>(_onChangeTabEvent);
   }
 
   final MovieRepository _movieRepository;
@@ -31,6 +32,14 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> with HydratedMixin {
       emit(MovieFetched(collection: movieCollection));
     } catch (e) {
       emit(MovieError(message: e.toString()));
+    }
+  }
+
+  void _onChangeTabEvent(ChangeTabEvent event, Emitter<MovieState> emit) {
+    if (state is MovieFetched) {
+      emit(MovieFetched(
+          collection: (state as MovieFetched).collection,
+          currentTab: event.currentTab));
     }
   }
 

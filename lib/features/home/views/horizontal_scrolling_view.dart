@@ -16,10 +16,13 @@ class HorizontalScrollerWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).disabledColor)),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Text(title,
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).primaryColor)),
+        ),
         const SizedBox(height: 4),
         SizedBox(
           height: 250,
@@ -28,6 +31,7 @@ class HorizontalScrollerWidget extends StatelessWidget {
               Expanded(
                 child: ListView(
                     scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
                     children: movies.map((movie) {
                       final imageUrl =
                           'https://www.themoviedb.org/t/p/w1280${movie.imageUrl}';

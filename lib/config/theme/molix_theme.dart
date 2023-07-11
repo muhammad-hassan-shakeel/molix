@@ -11,6 +11,7 @@ abstract class MolixTheme {
         filledButtonTheme: filledButtonTheme,
         inputDecorationTheme: inputDecorationTheme,
         appBarTheme: appBarTheme,
+        bottomNavigationBarTheme: bottomNavigationBarTheme,
       );
 
   Color get scaffoldBackgroundColor;
@@ -20,4 +21,5 @@ abstract class MolixTheme {
   FilledButtonThemeData get filledButtonTheme;
   InputDecorationTheme get inputDecorationTheme;
   AppBarTheme get appBarTheme;
+  BottomNavigationBarThemeData get bottomNavigationBarTheme;
 }

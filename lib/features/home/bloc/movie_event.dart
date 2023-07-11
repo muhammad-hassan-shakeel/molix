@@ -12,3 +12,9 @@ class FetchMovieEvent extends MovieEvent {
 
   final String apiKey;
 }
+
+class ChangeTabEvent extends MovieEvent {
+  final int currentTab;
+
+  const ChangeTabEvent({required this.currentTab});
+}

@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:molix/config/environment.dart';
 import 'package:molix/config/facade/network_facade.dart';
+import 'package:molix/config/theme/dark_theme.dart';
+import 'package:molix/config/theme/light_theme.dart';
 import 'package:molix/features/home/bloc/movie_bloc.dart';
-import 'package:molix/features/home/views/banner.dart';
-import 'package:molix/features/home/views/horizontal_scrolling_view.dart';
+import 'package:molix/features/home/views/downloads_screen.dart';
+import 'package:molix/features/home/views/movies_list.dart';
+import 'package:molix/features/home/views/profile_screen.dart';
+import 'package:molix/features/home/views/search_screen.dart';
+import 'package:molix/features/theme/cubit/theme_cubit.dart';
+
+import 'bottom_nav.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,20 +29,29 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Theme.of(context).appBarTheme.backgroundColor?.withOpacity(0.3),
       appBar: AppBar(
         title: Text('mOlIx',
             style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).colorScheme.primary)),
         actions: [
+          // Theme switch
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.logout),
+            onPressed: () {
+              if (context.read<ThemeCubit>().state.themeData is LightTheme) {
+                context.read<ThemeCubit>().changeTheme(const DarkTheme());
+              } else {
+                context.read<ThemeCubit>().changeTheme(const LightTheme());
+              }
+            },
+            icon: Icon(
+              Icons.brightness_4_outlined,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
         ],
       ),
+      bottomNavigationBar: const BottomNavbar(),
       body: SafeArea(
         child: BlocBuilder<MovieBloc, MovieState>(
           builder: (context, state) {
@@ -48,28 +64,13 @@ class _HomeView extends StatelessWidget {
             }
 
             if (state is MovieFetched) {
-              return ListView(
-                children: [
-                  BannerWidget(movies: state.collection.allMovies),
-                  const SizedBox(height: 24),
-                  HorizontalScrollerWidget(
-                      title: 'Popular', movies: state.collection.popularMovies),
-                  const SizedBox(height: 24),
-                  HorizontalScrollerWidget(
-                      title: 'Now Playing',
-                      movies: state.collection.nowPlayingMovies),
-                  const SizedBox(height: 24),
-                  HorizontalScrollerWidget(
-                    title: 'Top Rated',
-                    movies: state.collection.topRatedMovies,
-                  ),
-                  const SizedBox(height: 24),
-                  HorizontalScrollerWidget(
-                    title: 'Recommended',
-                    movies: state.collection.recommendedMovies,
-                  ),
-                ],
-              );
+              final screens = [
+                MoviesList(collection: state.collection),
+                SearchScreen(),
+                const DownloadsScreen(),
+                const ProfileScreen(),
+              ];
+              return screens[state.currentTab];
             } else {
               return const Center(child: Text('Error'));
             }
