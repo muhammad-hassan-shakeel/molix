@@ -46,7 +46,7 @@ class _LoginViewState extends State<_LoginView> {
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.2),
             Text(
-              'MOLEX',
+              'mOlIx',
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   fontWeight: FontWeight.bold,

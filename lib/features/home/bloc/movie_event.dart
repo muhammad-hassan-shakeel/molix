@@ -6,3 +6,9 @@ abstract class MovieEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class FetchMovieEvent extends MovieEvent {
+  const FetchMovieEvent({required this.apiKey});
+
+  final String apiKey;
+}
