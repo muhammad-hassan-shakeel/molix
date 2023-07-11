@@ -35,4 +35,11 @@ class DarkTheme extends MolixTheme {
 
   @override
   Color get scaffoldBackgroundColor => Colors.black;
+
+  @override
+  InputDecorationTheme get inputDecorationTheme => InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      );
 }

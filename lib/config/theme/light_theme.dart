@@ -34,4 +34,11 @@ class LightTheme extends MolixTheme {
 
   @override
   Color get scaffoldBackgroundColor => Colors.white;
+
+  @override
+  InputDecorationTheme get inputDecorationTheme => InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      );
 }
