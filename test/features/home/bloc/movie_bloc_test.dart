@@ -22,6 +22,8 @@ void main() {
       return MovieBloc(networkFacade);
     },
     act: (bloc) => bloc.add(const FetchMovieEvent(apiKey: '124')),
+    verify: (bloc) => verify(() => networkFacade.get(any(),
+        queryParameters: any(named: 'queryParameters'))).called(1),
     expect: () => [isA<MovieLoading>(), isA<MovieFetched>()],
   );
 }
