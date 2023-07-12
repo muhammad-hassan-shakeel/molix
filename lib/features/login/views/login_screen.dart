@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:molix/features/home/views/home_screen.dart';
+import 'package:molix/config/routes/routes.dart';
 import 'package:molix/features/login/bloc/login_bloc.dart';
 import 'package:molix/utils/validators.dart';
 
+@RoutePage()
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -98,9 +100,7 @@ class _LoginViewState extends State<_LoginView> {
       BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
-            Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
-                (route) => false);
+            context.router.replace(const HomeRoute());
           }
         },
         builder: (context, state) {

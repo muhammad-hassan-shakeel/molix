@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -7,7 +8,7 @@ import 'package:molix/config/network/client.dart';
 import 'package:molix/features/theme/cubit/theme_cubit.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'features/login/views/login_screen.dart';
+import 'config/routes/routes.dart';
 
 Future<void> mainCommon(Environment environment) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,12 +25,14 @@ Future<void> mainCommon(Environment environment) async {
             NetworkFacade(client: HttpClientWrapperV1(environment.baseUrl)),
       ),
     ],
-    child: const MolixApp(),
+    child: MolixApp(),
   ));
 }
 
 class MolixApp extends StatelessWidget {
-  const MolixApp({super.key});
+  MolixApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +40,16 @@ class MolixApp extends StatelessWidget {
       create: (context) => ThemeCubit(),
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
-          return MaterialApp(
-            title: 'Flutter Demo',
+          return MaterialApp.router(
+            routerConfig: _appRouter.config(
+              deepLinkBuilder: (deepLink) {
+                return const DeepLink([
+                  LoginRoute(),
+                ]);
+              },
+            ),
+            title: 'mOlIx',
             theme: state.themeData.themeData,
-            home: const LoginScreen(),
           );
         },
       ),

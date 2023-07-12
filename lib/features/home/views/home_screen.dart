@@ -1,4 +1,4 @@
-
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:molix/config/environment.dart';
@@ -14,6 +14,7 @@ import 'package:molix/features/theme/cubit/theme_cubit.dart';
 
 import 'bottom_nav.dart';
 
+@RoutePage()
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
