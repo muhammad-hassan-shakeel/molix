@@ -9,6 +9,7 @@ class MovieCollectionModel {
     required this.recommendedMovies,
   });
 
+  // I have assumed there will be minimum 20 movies in the response
   factory MovieCollectionModel.fromMovieEntity(MovieEntityList movieEntities) {
     final popularMovies = movieEntities.results
         .sublist(0, 5)
