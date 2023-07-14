@@ -40,3 +40,6 @@ Molix is a Flutter app that allows you to create and manage your own lists of mo
 * Widget tests
 * BLoC pattern
 * Theme management
+
+### Screenshots
+![Login Screen](login.png)
