@@ -1,6 +1,6 @@
 # molix
 
-Molix is a Flutter app that allows you to create and manage your own lists of movies and series. You can use this app accross both mobile platforms i.e iOS and android.
+Molix is a Flutter app that shows the personalised and popular movies. You can use this app accross both mobile platforms i.e iOS and android. App supports both light and dark theme, will add more attractive themes in the future. We also plan to add web and desktop support in the future.
 
 ## Getting Started
 
@@ -45,3 +45,6 @@ Molix is a Flutter app that allows you to create and manage your own lists of mo
 | Login Screen | Home Screen (dark) | Home Screen (light) | Search | Downloads | Profile |
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
 | ![Login Screen](login.png) | ![Home Screen (dark)](home-dark.png) | ![Home Screen (light)](home-light.png) | ![Search](search.png) | ![Downloads](downloads.png) | ![Profile](profile.png) |
+
+### Points to note
+App is using Hydrated Bloc to store movies data in local storage. Hydrated bloc saves data in `toJson` method of `MoviesBLoc`. It reads data from the local storage in `fromJson` method of the `MoviesBloc`
