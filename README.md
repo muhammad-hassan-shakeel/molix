@@ -42,4 +42,6 @@ Molix is a Flutter app that allows you to create and manage your own lists of mo
 * Theme management
 
 ### Screenshots
-![Login Screen](login.png)
+| Login Screen | Home Screen (dark) | Home Screen (light) | Search | Downloads | Profile |
+|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+| ![Login Screen](login.png) | ![Home Screen (dark)](home-dark.png) | ![Home Screen (light)](home-light.png) | ![Search](search.png) | ![Downloads](downloads.png) | ![Profile](profile.png) |
